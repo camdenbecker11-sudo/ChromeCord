@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  chromecord:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    ports:
+      - "8080:8080"
+      - "5900:5900"
+    volumes:
+      - chromecord_profile:/data/profile
+    shm_size: "1gb"
+    restart: unless-stopped
+
+volumes:
+  chromecord_profile:
