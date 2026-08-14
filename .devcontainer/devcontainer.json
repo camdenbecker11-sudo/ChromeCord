@@ -1,0 +1,16 @@
+{
+  "name": "ChromeCord - Discord in Chrome via noVNC",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "forwardPorts": [8080],
+  "postCreateCommand": "chmod +x /usr/local/bin/start.sh",
+  "remoteUser": "root",
+  "portsAttributes": {
+    "8080": {
+      "label": "noVNC web UI",
+      "onAutoForward": "openPreview"
+    }
+  }
+}
