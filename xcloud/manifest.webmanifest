@@ -1,0 +1,14 @@
+{
+  "name": "Cloud Gaming Launcher",
+  "short_name": "Cloud Gaming",
+  "description": "A Chromebook-friendly launcher for Xbox Cloud Gaming",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101216",
+  "theme_color": "#101216",
+  "orientation": "landscape",
+  "icons": [
+    {"src":"./icons/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}

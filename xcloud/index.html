@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101216">
+  <meta name="description" content="Chromebook launcher for Xbox Cloud Gaming">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Cloud Gaming Launcher</title>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><div class="logo">X</div><div><strong>Cloud Gaming</strong><small>Chromebook launcher</small></div></div>
+      <button id="fullscreenButton" class="secondary">Fullscreen</button>
+    </header>
+    <section class="hero">
+      <p class="eyebrow">Ready to play</p>
+      <h1>Xbox Cloud Gaming</h1>
+      <p>Launch the official Xbox Cloud Gaming website in Chrome. Your Microsoft login stays with Microsoft.</p>
+      <div class="actions"><button id="launchButton" class="primary">Open Xbox Cloud Gaming</button><button id="installButton" class="secondary hidden">Install Launcher</button></div>
+    </section>
+    <section class="grid">
+      <article class="panel"><h2>Controller</h2><p id="controllerStatus">Checking for a connected controller…</p></article>
+      <article class="panel"><h2>Connection</h2><p id="connectionStatus">Checking connection…</p></article>
+      <article class="panel"><h2>Chromebook tips</h2><ul><li>Use ChromeOS Stable.</li><li>Connect a USB or Bluetooth controller.</li><li>Use fullscreen for the best experience.</li><li>Cloud gaming requires supported access and an eligible account.</li></ul></article>
+    </section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
