@@ -1,11 +1,20 @@
-# Chromebook Cloud Gaming Launcher
+# ChromeCord Cloud Gaming
 
-This is a static Chromebook-friendly PWA. It provides a local launcher UI, fullscreen mode, install support, connection status, and browser Gamepad API detection.
+The published `xcloud/` site is a static Chromebook launcher. It can open the official Xbox Cloud Gaming site directly and can optionally display the ChromeCord noVNC browser portal.
 
-It opens the official Xbox Cloud Gaming website at `https://www.xbox.com/play`. It does not proxy, copy, or store Microsoft authentication or streaming services.
+## Direct browser launch
 
-## Use
+Use **Open Xbox Cloud Gaming**. This opens `https://www.xbox.com/play` in a new Chrome tab. Sign in there; this project never receives Microsoft credentials.
 
-Open the deployed `xcloud/` directory over HTTPS, or use `http://localhost` during local development. On ChromeOS, select the install icon in Chrome's address bar to install the launcher as a PWA.
+## Remote browser/proxy mode
 
-The project can be deployed with GitHub Pages by setting the Pages source to the `main` branch and using `/xcloud` as the app path.
+A GitHub Pages site cannot run Docker, Chrome, Xvfb, noVNC, or a proxy. Those services must run on a separate HTTPS host (a VPS, Codespace, or your own server). The container now starts Chrome at Xbox Cloud Gaming by default.
+
+1. Deploy the repository's container on a host that supports Docker.
+2. Expose noVNC port `8080` through HTTPS, for example `https://gaming.example.com/`.
+3. Set `window.CHROMECORD_PORTAL_URL` in `index.html` to that HTTPS base URL.
+4. Republish GitHub Pages.
+
+The launcher will then show an **Open ChromeCord Browser** button and embed `/vnc.html` from that host. Keep the noVNC password enabled and protect the host with authentication/TLS. Do not expose port 5900 publicly.
+
+If the remote host sends restrictive `frame-ancestors` headers, the iframe may be blocked; use the button to open the portal in a new tab instead.

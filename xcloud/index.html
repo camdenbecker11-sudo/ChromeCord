@@ -4,29 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101216">
-  <meta name="description" content="Chromebook launcher for Xbox Cloud Gaming">
+  <meta name="description" content="ChromeCord browser launcher for Xbox Cloud Gaming">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="stylesheet" href="./styles.css">
-  <title>Cloud Gaming Launcher</title>
+  <title>ChromeCord Cloud Gaming</title>
 </head>
 <body>
   <main class="app">
     <header class="topbar">
-      <div class="brand"><div class="logo">X</div><div><strong>Cloud Gaming</strong><small>Chromebook launcher</small></div></div>
+      <div class="brand"><div class="logo">X</div><div><strong>ChromeCord Cloud</strong><small>Chromebook browser launcher</small></div></div>
       <button id="fullscreenButton" class="secondary">Fullscreen</button>
     </header>
     <section class="hero">
-      <p class="eyebrow">Ready to play</p>
+      <p class="eyebrow">ChromeCord launcher</p>
       <h1>Xbox Cloud Gaming</h1>
-      <p>Launch the official Xbox Cloud Gaming website in Chrome. Your Microsoft login stays with Microsoft.</p>
-      <div class="actions"><button id="launchButton" class="primary">Open Xbox Cloud Gaming</button><button id="installButton" class="secondary hidden">Install Launcher</button></div>
+      <p>Launch the official Xbox Cloud Gaming website directly, or connect to your ChromeCord remote-browser portal when it is deployed over HTTPS.</p>
+      <div class="actions"><button id="launchButton" class="primary">Open Xbox Cloud Gaming</button><button id="portalButton" class="secondary">Open ChromeCord Browser</button><button id="installButton" class="secondary hidden">Install Launcher</button></div>
+    </section>
+    <section class="portal panel">
+      <h2>ChromeCord remote browser</h2>
+      <p id="portalNotice">The published launcher is static. Configure <code>window.CHROMECORD_PORTAL_URL</code> in <code>app.js</code> with your HTTPS noVNC URL to show the remote browser here.</p>
+      <iframe id="portalFrame" class="portal-frame hidden" title="ChromeCord remote browser" allow="fullscreen; gamepad"></iframe>
     </section>
     <section class="grid">
       <article class="panel"><h2>Controller</h2><p id="controllerStatus">Checking for a connected controller…</p></article>
       <article class="panel"><h2>Connection</h2><p id="connectionStatus">Checking connection…</p></article>
-      <article class="panel"><h2>Chromebook tips</h2><ul><li>Use ChromeOS Stable.</li><li>Connect a USB or Bluetooth controller.</li><li>Use fullscreen for the best experience.</li><li>Cloud gaming requires supported access and an eligible account.</li></ul></article>
+      <article class="panel"><h2>Security</h2><p>Microsoft sign-in stays on Microsoft. The launcher does not collect credentials.</p></article>
     </section>
   </main>
+  <script>window.CHROMECORD_PORTAL_URL = "";</script>
   <script src="./app.js"></script>
 </body>
 </html>
